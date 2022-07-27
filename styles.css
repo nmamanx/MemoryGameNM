@@ -6,13 +6,19 @@
   transform: translate(-50%, -50%);
 }
 
-.grid{
-  width: 65%;
-  border: #ffc801;
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
 }
 
-.grid-item.bordered {
-  border: 1px solid rgb(255, 217, 0) dashed;
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 217, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }
 
 .disabled {
@@ -24,7 +30,7 @@
 }
 
 
-.card {
+/* .card {
   position: relative;
   width: 100px;
   height: 100px;
@@ -58,4 +64,4 @@
 .card.flipped .card-back {
   transform: rotateY(0) rotateZ(0);
 }
-
+ */

@@ -51,6 +51,7 @@ const state = {
   let cardsChosenId = []
   let cardsWon = []
 
+
   //create your board
   function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
@@ -77,8 +78,8 @@ const state = {
     }
     else if (cardsChosen[0] === cardsChosen[1]) {
       //alert('You found a match')
-      cards[optionOneId].setAttribute('src', 'images/white.png')
-      cards[optionTwoId].setAttribute('src', 'images/white.png')
+      //cards[optionOneId].setAttribute('src', 'images/white.png')
+      //cards[optionTwoId].setAttribute('src', 'images/white.png')
       cards[optionOneId].removeEventListener('click', flipCard)
       cards[optionTwoId].removeEventListener('click', flipCard)
       cardsWon.push(cardsChosen)
@@ -91,9 +92,12 @@ const state = {
     cardsChosenId = []
     //resultDisplay.textContent = cardsWon.length
     if  (cardsWon.length === cardArray.length/2) {
-      resultDisplay.textContent = 'Congratulations! You found them all!'
+      //resultDisplay.textContent = 'Congratulations! You found them all!'
       clearInterval(state.loop);
-      alert('Congratulations! You found them all!');
+      //alert('Congratulations! You found them all!');
+      console.log('befor ModalPP');
+      $('#ModalPP').modal({show:true,focus:true});
+      console.log('after ModalPP');
     }
   }
 
