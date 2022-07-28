@@ -1,23 +1,42 @@
-
-.game {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.body{
+  width: 30%;
+  align-items: center;
+  align-content: center;
+  text-align: center;
 }
+
+.container{
+  width: 30%;
+}
+
 
 .grid {
   display: grid;
   grid-template-columns: auto auto auto;
   background-color: #2196F3;
   padding: 10px;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 217, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  text-align: center;
+}
+
+#TitelC{
+  align-items: center;
+  background-color: aquamarine;
+}
+
+#colM{
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.row.row-cols-1{
+  align-items: center;
+  align-content: center;
   text-align: center;
 }
 
@@ -26,42 +45,11 @@
 }
 
 .alert{
-  width: 30%;
+  width: auto;
 }
 
 
-/* .card {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
+.disabled {
+  color: #757575;
 }
 
-.card-front,
-.card-back {
-    position: absolute;
-    border-radius: 5px;
-    width: 100%;
-    height: 100%;
-    background: #282A3A;
-    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
-    backface-visibility: hidden;
-}
-
-.card-back {
-  font-size: 28pt;
-  text-align: center;
-  line-height: 100px;
-  background: #FDF8E6;
-  transform: rotateY(180deg) rotateZ(50deg);
-  user-select: none;
-}
-
-.card.flipped .card-front {
-  transform: rotateY(180deg) rotateZ(50deg);
-}
-
-.card.flipped .card-back {
-  transform: rotateY(0) rotateZ(0);
-}
- */

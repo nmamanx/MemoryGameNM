@@ -8,15 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     start: document.querySelector('button'),
     win: document.querySelector('.win'),
     spinner: document.querySelector('#spinnerTime')
-}
+  }
 
-const state = {
-    gameStarted: false,
-    flippedCards: 0,
-    totalMoves: 0,
-    totalTime: 0,
-    loop: null
-}
+  const state = {
+      gameStarted: false,
+      flippedCards: 0,
+      totalMoves: 0,
+      totalTime: 0,
+      loop: null,
+      rating: 0,
+      ratingStar: 0 
+  }
 
   const Array = [1,2,3,4,5,6,7,8,9,10];
   Array.sort(() => 0.5 - Math.random())
@@ -74,19 +76,18 @@ const state = {
     if(optionOneId == optionTwoId) {
       cards[optionOneId].setAttribute('src', 'images/blank.png')
       cards[optionTwoId].setAttribute('src', 'images/blank.png')
-      //alert('You have clicked the same image!')
+      console.log('You have clicked the same image!')
     }
     else if (cardsChosen[0] === cardsChosen[1]) {
-      //alert('You found a match')
-      //cards[optionOneId].setAttribute('src', 'images/white.png')
-      //cards[optionTwoId].setAttribute('src', 'images/white.png')
+      console.log('You found a match')
+
       cards[optionOneId].removeEventListener('click', flipCard)
       cards[optionTwoId].removeEventListener('click', flipCard)
       cardsWon.push(cardsChosen)
     } else {
       cards[optionOneId].setAttribute('src', 'images/blank.png')
       cards[optionTwoId].setAttribute('src', 'images/blank.png')
-      //alert('Sorry, try again')
+      console.log('Sorry, try again')
     }
     cardsChosen = []
     cardsChosenId = []
@@ -94,7 +95,24 @@ const state = {
     if  (cardsWon.length === cardArray.length/2) {
       //resultDisplay.textContent = 'Congratulations! You found them all!'
       clearInterval(state.loop);
-      //alert('Congratulations! You found them all!');
+      state.rating = state.totalTime * state.totalMoves;
+      console.log('state.rating: ' + state.rating);
+      let buildMsgHtml = ;
+      if(state.rating < 180)
+      {state.ratingStar=3
+        buildMsgHtml='<div><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></div>'}
+      else {
+        if(state.rating > 350)
+        {state.ratingStar=1
+          buildMsgHtml='<div><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></div>'}
+        else
+        {state.ratingStar=2
+          buildMsgHtml='<div><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span></div>'}
+      }
+      console.log('state.ratingStar: ' + state.ratingStar);
+      
+  
+
       console.log('befor ModalPP');
       $('#ModalPP').modal({show:true,focus:true});
       console.log('after ModalPP');
